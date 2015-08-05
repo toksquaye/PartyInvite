@@ -14,8 +14,18 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div> 
-        @RenderBody();
+    <div class="site-header">
+        <header class="container">
+            <h1 class="page-header">
+                <a href="@Url.RouteUrl("Home")"> Singles Potluck Fellowship</a>
+                <small>event registration site</small>
+            </h1>
+        </header>
+    </div>
+    <div class="container">
+        <div class="row">
+            @RenderBody();
+        </div>
     </div>
 </body>
 </html>
