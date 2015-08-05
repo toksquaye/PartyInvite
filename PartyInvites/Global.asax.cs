@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Optimization;
+using PartyInvites.App_Start;
 
 namespace PartyInvites
 {
@@ -14,11 +16,24 @@ namespace PartyInvites
     {
         protected void Application_Start()
         {
+            Database.Configure(); //hooks in database configuration using nhibernater in Database.cs
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_BeginRequest()
+        {
+            Database.OpenSession();
+        }
+
+        protected void Application_EndRequest()
+        {
+            Database.CloseSession();
         }
     }
 }

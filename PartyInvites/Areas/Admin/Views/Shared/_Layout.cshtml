@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!--below is a page layout to be used by a view that references this file-->
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Party Event Admin</title>
+    @Styles.Render("~/admin/styles")
+
+</head>
+<body>
+
+        <!--inserts the view here-->
+        @RenderBody()
+
+
+
+    <form class="hidden" id="anti-forgery-form">
+        @Html.AntiForgeryToken() <!--injects input tag with __RequestVerificationToken as value-->
+    </form>
+
+</body>
+
+
+
+</html>

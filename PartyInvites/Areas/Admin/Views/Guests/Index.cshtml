@@ -1,0 +1,26 @@
+﻿@model PartyInvites.Areas.Admin.ViewModels.GuestsIndex
+
+    <div>
+        <h1>Guest List (Admin)</h1>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var guest in Model.Guests)
+            {
+                <tr>
+                    <td>@guest.Id</td>
+                    <td>@guest.Name</td>
+                    <td>@guest.Email</td>
+                </tr>
+            }
+         </tbody>
+        </table>

@@ -1,0 +1,1 @@
+..\..\packages\FluentMigrator.1.6.0\tools\Migrate.exe --db=mySql --target=..\bin\partyinvites.dll --configPath=..\Web.config -c=MainDb
