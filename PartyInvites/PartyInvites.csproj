@@ -141,7 +141,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\_001_GuestsAndItems.cs" />
+    <Compile Include="Infracstructure\RoleProvider.cs" />
+    <Compile Include="Migrations\_001_GuestsAndRoles.cs" />
     <Compile Include="Models\Guest.cs" />
     <Compile Include="ViewModel\Auth.cs" />
     <Compile Include="ViewModel\GuestResponse.cs" />

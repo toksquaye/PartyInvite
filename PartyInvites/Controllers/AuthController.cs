@@ -18,13 +18,19 @@ namespace PartyInvites.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToRoute("home");
+        }
+
         public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(AuthLogin form)
+        public ActionResult Login(AuthLogin form, string returnUrl)
         {
             var guest = Database.Session.Query<Guest>().FirstOrDefault(g => g.Name == form.Name);
 
@@ -45,8 +51,9 @@ namespace PartyInvites.Controllers
             //tell asp.net a person is who he says he is. letting asp know what user is logged in
             FormsAuthentication.SetAuthCookie(guest.Name, true);
 
-            //if (!string.IsNullOrWhiteSpace(returnUrl))
-            //    return Redirect(returnUrl);
+            //return guest to the page they were trying to go before the logged on
+            if (!string.IsNullOrWhiteSpace(returnUrl))
+                return Redirect(returnUrl);
 
             return RedirectToRoute("rsvp");
             

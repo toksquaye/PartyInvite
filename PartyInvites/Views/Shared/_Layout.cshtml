@@ -27,5 +27,25 @@
             @RenderBody();
         </div>
     </div>
+    <footer class="container">
+        <div class="row">
+            <div class="col-sm-6">
+            &copy; ToksQ @DateTime.UtcNow.Year
+            </div>
+            <div class="col-sm-6">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.RouteUrl("logout")">Logout</a>
+
+                    if (User.IsInRole("admin"))
+                    {
+                        <a href="@Url.Action("index", "Guests", new {area="admin" })">View guest list</a>
+                    }
+                }
+            </div>
+            </div>
+    </footer>
+
 </body>
+
 </html>

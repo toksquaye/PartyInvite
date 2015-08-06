@@ -9,6 +9,7 @@ using PartyInvites.Areas.Admin.ViewModels;
 
 namespace PartyInvites.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")] //only a logged in admin can use controller
     public class GuestsController : Controller
     {
         // GET: Admin/Guests
