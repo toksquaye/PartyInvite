@@ -32,6 +32,7 @@ namespace PartyInvites
             //add mappings for Nhibernate
             var mapper = new ModelMapper();
             mapper.AddMapping<GuestMap>();
+            mapper.AddMapping<RoleMap>();
 
             config.AddMapping(mapper.CompileMappingForAllExplicitlyAddedEntities());
 

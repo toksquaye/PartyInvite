@@ -12,6 +12,12 @@ namespace PartyInvites.Models
         public virtual int Id { get; set; }
         public virtual string Name { get; set; }
         public virtual string Email { get; set; }
+        public virtual string PasswordHash { get; set; }
+        public virtual IList<RoleNames> Role { get; set; }
+        public Guest()
+        {
+            Role = new List<RoleNames>() { };//initialize list to an empty one
+        }
     }
 
     //maps entity to user table in database
@@ -22,7 +28,19 @@ namespace PartyInvites.Models
             Table("guests"); //tablename
             Id(x => x.Id, x => x.Generator(Generators.Identity)); //primary key
             Property(x => x.Name, x => x.NotNullable(true));
+            Property(x => x.PasswordHash, x =>
+                {
+                    x.Column("password_hash"); //this maps PasswordHash to password_hash
+                    x.NotNullable(true);
+                });
+
             Property(x => x.Email, x => x.NotNullable(true));
+
+            Bag(x => x.Role, x =>
+                {
+                    x.Table("guests_role");
+                    x.Key(k => k.Column("guest_id"));
+                }, x => x.ManyToMany(k => k.Column("role_id")));
         }
     }
 }

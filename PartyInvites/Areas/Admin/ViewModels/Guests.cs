@@ -7,6 +7,12 @@ using System.Web;
 
 namespace PartyInvites.Areas.Admin.ViewModels
 {
+    public class RoleCheckbox
+    {//this class is used to list the roles for a guest.
+        public int Id { get; set; }
+        public bool IsChecked { get; set; }
+        public string Role { get; set; }
+    }
     
     public class GuestsIndex
         {
@@ -16,8 +22,13 @@ namespace PartyInvites.Areas.Admin.ViewModels
 
     public class GuestsNew
     {
+        public IList<RoleCheckbox> Roles { get; set; }
+
         [Required, MaxLength(128)]
         public string Name { get; set; }
+
+        [Required, DataType(DataType.Password)]
+        public string Password { get; set; }
 
         [Required, MaxLength(256), DataType(DataType.EmailAddress)]
         public string Email { get; set; }

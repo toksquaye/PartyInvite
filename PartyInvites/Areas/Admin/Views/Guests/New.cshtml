@@ -1,5 +1,6 @@
 ﻿@model PartyInvites.Areas.Admin.ViewModels.GuestsNew
 
+<div class="container">
     <h1>Add New Guest</h1>
     @using (Html.BeginForm())
     {
@@ -10,12 +11,18 @@
             @Html.TextBoxFor(f => f.Name, new { @class = "form-control" })
         </div>
         <div class="form-group">
+            @Html.LabelFor(f => f.Password)
+            @Html.PasswordFor(f => f.Password, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
             @Html.LabelFor(f => f.Email)
             @Html.TextBoxFor(f => f.Email, new { @class = "form-control", type = "email" })
         </div>
+        
+        @Html.Partial("_RoleEditor", Model.Roles)
 
         <input type="submit" value="Add Guest" class="btn btn-primary" />
         <a href="@Url.Action("index")">or cancel</a>
-
     }
+    </div>
 

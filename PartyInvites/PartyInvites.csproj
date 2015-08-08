@@ -144,6 +144,7 @@
     <Compile Include="Infracstructure\RoleProvider.cs" />
     <Compile Include="Migrations\_001_GuestsAndRoles.cs" />
     <Compile Include="Models\Guest.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="ViewModel\Auth.cs" />
     <Compile Include="ViewModel\GuestResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +170,7 @@
     <Content Include="Areas\Admin\Views\Guests\New.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Guests\_RoleEditor.cshtml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
