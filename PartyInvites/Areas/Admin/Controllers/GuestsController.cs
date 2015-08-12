@@ -46,6 +46,7 @@ namespace PartyInvites.Areas.Admin.Controllers
             guest.PasswordHash = form.Password;
             guest.Email = form.Email;
             Database.Session.Save(guest);
+            Database.Session.Flush(); // I needed to add flush for the pivot table to update. Not sure why. but now it works.
 
             return RedirectToAction("index");
            
